@@ -37,15 +37,17 @@ def handler(event, context):
 
     reply = _get_client().messages.create(
         model=model,
-        max_tokens=1024,
+        max_tokens=4096,
         messages=[{"role": "user", "content": prompt}],
     )
+
+    text = "".join(block.text for block in reply.content if block.type == "text")
 
     return {
         "statusCode": 200,
         "body": json.dumps(
             {
-                "response": reply.content[0].text,
+                "response": text,
                 "model": model,
                 "score": complexity,
                 "threshold": THRESHOLD,
