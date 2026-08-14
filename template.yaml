@@ -14,6 +14,10 @@ Resources:
     Properties:
       CodeUri: src/
       Handler: app.handler
+      # Least-privilege execution role: CloudWatch Logs only for now.
+      # DynamoDB read/write actions get added here in Phase 2.
+      Policies:
+        - AWSLambdaBasicExecutionRole
       Events:
         Route:
           Type: Api
