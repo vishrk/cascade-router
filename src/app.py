@@ -55,7 +55,15 @@ def handler(event, context):
 
     text = "".join(block.text for block in reply.content if block.type == "text")
 
-    log_request(prompt, model, complexity, features, latency_ms)
+    log_request(
+        prompt,
+        model,
+        complexity,
+        features,
+        latency_ms,
+        input_tokens=reply.usage.input_tokens,
+        output_tokens=reply.usage.output_tokens,
+    )
 
     if not text:
         return {
