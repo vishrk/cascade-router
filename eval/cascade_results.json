@@ -1,0 +1,826 @@
+{
+  "q001": {
+    "confidence": 1.0,
+    "cheap_cost": 0.000192,
+    "cheap_correct": true
+  },
+  "q002": {
+    "confidence": 0.3333333333333333,
+    "cheap_cost": 0.00046699999999999997,
+    "cheap_correct": true,
+    "expensive_cost": 0.00508,
+    "expensive_correct": true
+  },
+  "q003": {
+    "confidence": 0.6666666666666666,
+    "cheap_cost": 0.000665,
+    "cheap_correct": true,
+    "expensive_cost": 0.007505,
+    "expensive_correct": true
+  },
+  "q004": {
+    "confidence": 0.3333333333333333,
+    "cheap_cost": 0.0007999999999999999,
+    "cheap_correct": true,
+    "expensive_cost": 0.008095,
+    "expensive_correct": true
+  },
+  "q005": {
+    "confidence": 0.6666666666666666,
+    "cheap_cost": 0.00028999999999999995,
+    "cheap_correct": true,
+    "expensive_cost": 0.00342,
+    "expensive_correct": true
+  },
+  "q006": {
+    "confidence": 0.3333333333333333,
+    "cheap_cost": 0.001592,
+    "cheap_correct": true,
+    "expensive_cost": 0.01679,
+    "expensive_correct": true
+  },
+  "q007": {
+    "confidence": 0.3333333333333333,
+    "cheap_cost": 0.000766,
+    "cheap_correct": true,
+    "expensive_cost": 0.009945,
+    "expensive_correct": true
+  },
+  "q008": {
+    "confidence": 0.6666666666666666,
+    "cheap_cost": 0.0005970000000000001,
+    "cheap_correct": true,
+    "expensive_cost": 0.007555,
+    "expensive_correct": true
+  },
+  "q009": {
+    "confidence": 0.3333333333333333,
+    "cheap_cost": 0.000875,
+    "cheap_correct": true,
+    "expensive_cost": 0.010845,
+    "expensive_correct": true
+  },
+  "q010": {
+    "confidence": 0.6666666666666666,
+    "cheap_cost": 0.0008910000000000001,
+    "cheap_correct": true,
+    "expensive_cost": 0.012345,
+    "expensive_correct": true
+  },
+  "q011": {
+    "confidence": 1.0,
+    "cheap_cost": 0.000243,
+    "cheap_correct": true
+  },
+  "q012": {
+    "confidence": 0.3333333333333333,
+    "cheap_cost": 0.000258,
+    "cheap_correct": true,
+    "expensive_cost": 0.00105,
+    "expensive_correct": true
+  },
+  "q013": {
+    "confidence": 1.0,
+    "cheap_cost": 0.000276,
+    "cheap_correct": true
+  },
+  "q014": {
+    "confidence": 0.3333333333333333,
+    "cheap_cost": 0.00048800000000000004,
+    "cheap_correct": true,
+    "expensive_cost": 0.002475,
+    "expensive_correct": true
+  },
+  "q015": {
+    "confidence": 0.6666666666666666,
+    "cheap_cost": 0.000428,
+    "cheap_correct": true,
+    "expensive_cost": 0.00295,
+    "expensive_correct": true
+  },
+  "q016": {
+    "confidence": 0.6666666666666666,
+    "cheap_cost": 0.000707,
+    "cheap_correct": true,
+    "expensive_cost": 0.00318,
+    "expensive_correct": true
+  },
+  "q017": {
+    "confidence": 1.0,
+    "cheap_cost": 0.001092,
+    "cheap_correct": true
+  },
+  "q018": {
+    "confidence": 0.3333333333333333,
+    "cheap_cost": 0.001454,
+    "cheap_correct": true,
+    "expensive_cost": 0.006125,
+    "expensive_correct": true
+  },
+  "q019": {
+    "confidence": 0.6666666666666666,
+    "cheap_cost": 0.00092,
+    "cheap_correct": true,
+    "expensive_cost": 0.00826,
+    "expensive_correct": true
+  },
+  "q020": {
+    "confidence": 0.3333333333333333,
+    "cheap_cost": 0.000271,
+    "cheap_correct": true,
+    "expensive_cost": 0.00266,
+    "expensive_correct": true
+  },
+  "q021": {
+    "confidence": 0.6666666666666666,
+    "cheap_cost": 0.0006180000000000001,
+    "cheap_correct": true,
+    "expensive_cost": 0.00275,
+    "expensive_correct": true
+  },
+  "q022": {
+    "confidence": 0.6666666666666666,
+    "cheap_cost": 0.000839,
+    "cheap_correct": true,
+    "expensive_cost": 0.006155,
+    "expensive_correct": true
+  },
+  "q023": {
+    "confidence": 0.3333333333333333,
+    "cheap_cost": 0.002036,
+    "cheap_correct": true,
+    "expensive_cost": 0.01105,
+    "expensive_correct": true
+  },
+  "q024": {
+    "confidence": 0.3333333333333333,
+    "cheap_cost": 0.0032960000000000003,
+    "cheap_correct": true,
+    "expensive_cost": 0.013385,
+    "expensive_correct": true
+  },
+  "q025": {
+    "confidence": 0.3333333333333333,
+    "cheap_cost": 0.007305,
+    "cheap_correct": true,
+    "expensive_cost": 0.021865,
+    "expensive_correct": true
+  },
+  "q026": {
+    "confidence": 0.3333333333333333,
+    "cheap_cost": 0.000579,
+    "cheap_correct": true,
+    "expensive_cost": 0.006775,
+    "expensive_correct": true
+  },
+  "q027": {
+    "confidence": 0.3333333333333333,
+    "cheap_cost": 0.003334,
+    "cheap_correct": true,
+    "expensive_cost": 0.01504,
+    "expensive_correct": true
+  },
+  "q028": {
+    "confidence": 0.3333333333333333,
+    "cheap_cost": 0.0009519999999999999,
+    "cheap_correct": true,
+    "expensive_cost": 0.01112,
+    "expensive_correct": true
+  },
+  "q029": {
+    "confidence": 0.3333333333333333,
+    "cheap_cost": 0.0006670000000000001,
+    "cheap_correct": true,
+    "expensive_cost": 0.00886,
+    "expensive_correct": true
+  },
+  "q030": {
+    "confidence": 1.0,
+    "cheap_cost": 0.000582,
+    "cheap_correct": true
+  },
+  "q031": {
+    "confidence": 0.3333333333333333,
+    "cheap_cost": 0.004902,
+    "cheap_correct": true,
+    "expensive_cost": 0.044765,
+    "expensive_correct": true
+  },
+  "q032": {
+    "confidence": 0.3333333333333333,
+    "cheap_cost": 0.0032879999999999997,
+    "cheap_correct": true,
+    "expensive_cost": 0.02612,
+    "expensive_correct": true
+  },
+  "q033": {
+    "confidence": 0.3333333333333333,
+    "cheap_cost": 0.00457,
+    "cheap_correct": true,
+    "expensive_cost": 0.027735,
+    "expensive_correct": true
+  },
+  "q034": {
+    "confidence": 0.3333333333333333,
+    "cheap_cost": 0.002023,
+    "cheap_correct": true,
+    "expensive_cost": 0.00465,
+    "expensive_correct": true
+  },
+  "q035": {
+    "confidence": 0.3333333333333333,
+    "cheap_cost": 0.004354,
+    "cheap_correct": true,
+    "expensive_cost": 0.039595,
+    "expensive_correct": true
+  },
+  "q036": {
+    "confidence": 0.3333333333333333,
+    "cheap_cost": 0.0058119999999999995,
+    "cheap_correct": true,
+    "expensive_cost": 0.03643,
+    "expensive_correct": true
+  },
+  "q037": {
+    "confidence": 0.3333333333333333,
+    "cheap_cost": 0.003829,
+    "cheap_correct": true,
+    "expensive_cost": 0.016635,
+    "expensive_correct": true
+  },
+  "q038": {
+    "confidence": 0.3333333333333333,
+    "cheap_cost": 0.004034,
+    "cheap_correct": true,
+    "expensive_cost": 0.03085,
+    "expensive_correct": true
+  },
+  "q039": {
+    "confidence": 0.3333333333333333,
+    "cheap_cost": 0.004299,
+    "cheap_correct": true,
+    "expensive_cost": 0.03496,
+    "expensive_correct": true
+  },
+  "q040": {
+    "confidence": 0.3333333333333333,
+    "cheap_cost": 0.0044989999999999995,
+    "cheap_correct": true,
+    "expensive_cost": 0.03298,
+    "expensive_correct": true
+  },
+  "q041": {
+    "confidence": 0.3333333333333333,
+    "cheap_cost": 0.008350999999999999,
+    "cheap_correct": true,
+    "expensive_cost": 0.01692,
+    "expensive_correct": true
+  },
+  "q042": {
+    "confidence": 0.3333333333333333,
+    "cheap_cost": 0.008099,
+    "cheap_correct": true,
+    "expensive_cost": 0.014295,
+    "expensive_correct": true
+  },
+  "q043": {
+    "confidence": 0.3333333333333333,
+    "cheap_cost": 0.002444,
+    "cheap_correct": true,
+    "expensive_cost": 0.010985,
+    "expensive_correct": true
+  },
+  "q044": {
+    "confidence": 0.3333333333333333,
+    "cheap_cost": 0.006694,
+    "cheap_correct": true,
+    "expensive_cost": 0.01084,
+    "expensive_correct": true
+  },
+  "q045": {
+    "confidence": 0.3333333333333333,
+    "cheap_cost": 0.002144,
+    "cheap_correct": true,
+    "expensive_cost": 0.008595,
+    "expensive_correct": true
+  },
+  "q046": {
+    "confidence": 0.3333333333333333,
+    "cheap_cost": 0.010407,
+    "cheap_correct": true,
+    "expensive_cost": 0.01403,
+    "expensive_correct": true
+  },
+  "q047": {
+    "confidence": 0.3333333333333333,
+    "cheap_cost": 0.0031720000000000003,
+    "cheap_correct": true,
+    "expensive_cost": 0.01113,
+    "expensive_correct": true
+  },
+  "q048": {
+    "confidence": 0.3333333333333333,
+    "cheap_cost": 0.008832,
+    "cheap_correct": true,
+    "expensive_cost": 0.015755,
+    "expensive_correct": true
+  },
+  "q049": {
+    "confidence": 0.3333333333333333,
+    "cheap_cost": 0.007186,
+    "cheap_correct": true,
+    "expensive_cost": 0.0396,
+    "expensive_correct": true
+  },
+  "q050": {
+    "confidence": 0.3333333333333333,
+    "cheap_cost": 0.013694999999999999,
+    "cheap_correct": true,
+    "expensive_cost": 0.01479,
+    "expensive_correct": true
+  },
+  "q051": {
+    "confidence": 0.3333333333333333,
+    "cheap_cost": 0.001687,
+    "cheap_correct": true,
+    "expensive_cost": 0.00317,
+    "expensive_correct": true
+  },
+  "q052": {
+    "confidence": 0.3333333333333333,
+    "cheap_cost": 0.00338,
+    "cheap_correct": true,
+    "expensive_cost": 0.012405,
+    "expensive_correct": true
+  },
+  "q053": {
+    "confidence": 1.0,
+    "cheap_cost": 0.001539,
+    "cheap_correct": true
+  },
+  "q054": {
+    "confidence": 0.3333333333333333,
+    "cheap_cost": 0.0017630000000000002,
+    "cheap_correct": true,
+    "expensive_cost": 0.004695,
+    "expensive_correct": true
+  },
+  "q055": {
+    "confidence": 0.3333333333333333,
+    "cheap_cost": 0.002257,
+    "cheap_correct": true,
+    "expensive_cost": 0.007035,
+    "expensive_correct": true
+  },
+  "q056": {
+    "confidence": 0.3333333333333333,
+    "cheap_cost": 0.0017590000000000001,
+    "cheap_correct": true,
+    "expensive_cost": 0.005165,
+    "expensive_correct": true
+  },
+  "q057": {
+    "confidence": 0.3333333333333333,
+    "cheap_cost": 0.002521,
+    "cheap_correct": true,
+    "expensive_cost": 0.008615,
+    "expensive_correct": true
+  },
+  "q058": {
+    "confidence": 0.3333333333333333,
+    "cheap_cost": 0.002744,
+    "cheap_correct": true,
+    "expensive_cost": 0.009775,
+    "expensive_correct": true
+  },
+  "q059": {
+    "confidence": 0.3333333333333333,
+    "cheap_cost": 0.003114,
+    "cheap_correct": true,
+    "expensive_cost": 0.01942,
+    "expensive_correct": true
+  },
+  "q060": {
+    "confidence": 0.6666666666666666,
+    "cheap_cost": 0.000611,
+    "cheap_correct": true,
+    "expensive_cost": 0.0037,
+    "expensive_correct": true
+  },
+  "q061": {
+    "confidence": 0.3333333333333333,
+    "cheap_cost": 0.005396,
+    "cheap_correct": true,
+    "expensive_cost": 0.05221,
+    "expensive_correct": true
+  },
+  "q062": {
+    "confidence": 0.3333333333333333,
+    "cheap_cost": 0.006786,
+    "cheap_correct": true,
+    "expensive_cost": 0.050905,
+    "expensive_correct": true
+  },
+  "q063": {
+    "confidence": 0.3333333333333333,
+    "cheap_cost": 0.0068260000000000005,
+    "cheap_correct": true,
+    "expensive_cost": 0.04148,
+    "expensive_correct": true
+  },
+  "q064": {
+    "confidence": 0.3333333333333333,
+    "cheap_cost": 0.00391,
+    "cheap_correct": true,
+    "expensive_cost": 0.028145,
+    "expensive_correct": true
+  },
+  "q065": {
+    "confidence": 0.3333333333333333,
+    "cheap_cost": 0.004405,
+    "cheap_correct": true,
+    "expensive_cost": 0.020535,
+    "expensive_correct": true
+  },
+  "q066": {
+    "confidence": 0.3333333333333333,
+    "cheap_cost": 0.007018,
+    "cheap_correct": true,
+    "expensive_cost": 0.02906,
+    "expensive_correct": true
+  },
+  "q067": {
+    "confidence": 0.3333333333333333,
+    "cheap_cost": 0.005974,
+    "cheap_correct": true,
+    "expensive_cost": 0.04799,
+    "expensive_correct": true
+  },
+  "q068": {
+    "confidence": 0.3333333333333333,
+    "cheap_cost": 0.011341,
+    "cheap_correct": true,
+    "expensive_cost": 0.077805,
+    "expensive_correct": true
+  },
+  "q069": {
+    "confidence": 0.3333333333333333,
+    "cheap_cost": 0.012799999999999999,
+    "cheap_correct": true,
+    "expensive_cost": 0.08362,
+    "expensive_correct": true
+  },
+  "q070": {
+    "confidence": 0.3333333333333333,
+    "cheap_cost": 0.015243000000000001,
+    "cheap_correct": false,
+    "expensive_cost": 0.10533,
+    "expensive_correct": true
+  },
+  "q071": {
+    "confidence": 0.3333333333333333,
+    "cheap_cost": 0.061551,
+    "cheap_correct": false,
+    "expensive_cost": 0.205055,
+    "expensive_correct": false
+  },
+  "q072": {
+    "confidence": 0.3333333333333333,
+    "cheap_cost": 0.01049,
+    "cheap_correct": false,
+    "expensive_cost": 0.091285,
+    "expensive_correct": true
+  },
+  "q073": {
+    "confidence": 0.3333333333333333,
+    "cheap_cost": 0.061542,
+    "cheap_correct": true,
+    "expensive_cost": 0.20505,
+    "expensive_correct": true
+  },
+  "q074": {
+    "confidence": 0.3333333333333333,
+    "cheap_cost": 0.019977,
+    "cheap_correct": true,
+    "expensive_cost": 0.075525,
+    "expensive_correct": true
+  },
+  "q075": {
+    "confidence": 0.3333333333333333,
+    "cheap_cost": 0.061544999999999996,
+    "cheap_correct": false,
+    "expensive_cost": 0.18936,
+    "expensive_correct": true
+  },
+  "q076": {
+    "confidence": 0.3333333333333333,
+    "cheap_cost": 0.052894000000000004,
+    "cheap_correct": true,
+    "expensive_cost": 0.20256,
+    "expensive_correct": true
+  },
+  "q077": {
+    "confidence": 0.3333333333333333,
+    "cheap_cost": 0.011614,
+    "cheap_correct": true,
+    "expensive_cost": 0.073685,
+    "expensive_correct": true
+  },
+  "q078": {
+    "confidence": 0.3333333333333333,
+    "cheap_cost": 0.06153,
+    "cheap_correct": false,
+    "expensive_cost": 0.205015,
+    "expensive_correct": false
+  },
+  "q079": {
+    "confidence": 0.3333333333333333,
+    "cheap_cost": 0.061557,
+    "cheap_correct": false,
+    "expensive_cost": 0.205055,
+    "expensive_correct": true
+  },
+  "q080": {
+    "confidence": 0.3333333333333333,
+    "cheap_cost": 0.059077000000000005,
+    "cheap_correct": true,
+    "expensive_cost": 0.128425,
+    "expensive_correct": true
+  },
+  "q081": {
+    "confidence": 0.3333333333333333,
+    "cheap_cost": 0.016239,
+    "cheap_correct": true,
+    "expensive_cost": 0.10065,
+    "expensive_correct": true
+  },
+  "q082": {
+    "confidence": 0.3333333333333333,
+    "cheap_cost": 0.023265,
+    "cheap_correct": true,
+    "expensive_cost": 0.10332,
+    "expensive_correct": true
+  },
+  "q083": {
+    "confidence": 0.3333333333333333,
+    "cheap_cost": 0.039367,
+    "cheap_correct": true,
+    "expensive_cost": 0.133765,
+    "expensive_correct": true
+  },
+  "q084": {
+    "confidence": 0.3333333333333333,
+    "cheap_cost": 0.061560000000000004,
+    "cheap_correct": false,
+    "expensive_cost": 0.158075,
+    "expensive_correct": true
+  },
+  "q085": {
+    "confidence": 0.3333333333333333,
+    "cheap_cost": 0.019747999999999998,
+    "cheap_correct": true,
+    "expensive_cost": 0.08516,
+    "expensive_correct": true
+  },
+  "q086": {
+    "confidence": 0.3333333333333333,
+    "cheap_cost": 0.035594,
+    "cheap_correct": true,
+    "expensive_cost": 0.122615,
+    "expensive_correct": true
+  },
+  "q087": {
+    "confidence": 0.3333333333333333,
+    "cheap_cost": 0.025125999999999996,
+    "cheap_correct": true,
+    "expensive_cost": 0.159065,
+    "expensive_correct": true
+  },
+  "q088": {
+    "confidence": 0.3333333333333333,
+    "cheap_cost": 0.06156300000000001,
+    "cheap_correct": false,
+    "expensive_cost": 0.173915,
+    "expensive_correct": true
+  },
+  "q089": {
+    "confidence": 0.3333333333333333,
+    "cheap_cost": 0.039553000000000005,
+    "cheap_correct": true,
+    "expensive_cost": 0.099125,
+    "expensive_correct": true
+  },
+  "q090": {
+    "confidence": 0.3333333333333333,
+    "cheap_cost": 0.061535999999999993,
+    "cheap_correct": false,
+    "expensive_cost": 0.167155,
+    "expensive_correct": true
+  },
+  "q091": {
+    "confidence": 0.6666666666666666,
+    "cheap_cost": 0.0007790000000000001,
+    "cheap_correct": false,
+    "expensive_cost": 0.01041,
+    "expensive_correct": true
+  },
+  "q092": {
+    "confidence": 0.3333333333333333,
+    "cheap_cost": 0.0006609999999999999,
+    "cheap_correct": true,
+    "expensive_cost": 0.006685,
+    "expensive_correct": true
+  },
+  "q093": {
+    "confidence": 0.3333333333333333,
+    "cheap_cost": 0.0013319999999999999,
+    "cheap_correct": true,
+    "expensive_cost": 0.009085,
+    "expensive_correct": true
+  },
+  "q094": {
+    "confidence": 0.3333333333333333,
+    "cheap_cost": 0.001006,
+    "cheap_correct": true,
+    "expensive_cost": 0.00527,
+    "expensive_correct": true
+  },
+  "q095": {
+    "confidence": 0.6666666666666666,
+    "cheap_cost": 0.000365,
+    "cheap_correct": true,
+    "expensive_cost": 0.00232,
+    "expensive_correct": true
+  },
+  "q096": {
+    "confidence": 0.3333333333333333,
+    "cheap_cost": 0.0005579999999999999,
+    "cheap_correct": true,
+    "expensive_cost": 0.006915,
+    "expensive_correct": true
+  },
+  "q097": {
+    "confidence": 1.0,
+    "cheap_cost": 0.000228,
+    "cheap_correct": true
+  },
+  "q098": {
+    "confidence": 0.6666666666666666,
+    "cheap_cost": 0.000725,
+    "cheap_correct": true,
+    "expensive_cost": 0.00757,
+    "expensive_correct": true
+  },
+  "q099": {
+    "confidence": 0.6666666666666666,
+    "cheap_cost": 0.000586,
+    "cheap_correct": true,
+    "expensive_cost": 0.00746,
+    "expensive_correct": true
+  },
+  "q100": {
+    "confidence": 1.0,
+    "cheap_cost": 0.000392,
+    "cheap_correct": true
+  },
+  "q101": {
+    "confidence": 0.3333333333333333,
+    "cheap_cost": 0.0024980000000000002,
+    "cheap_correct": true,
+    "expensive_cost": 0.00994,
+    "expensive_correct": true
+  },
+  "q102": {
+    "confidence": 0.3333333333333333,
+    "cheap_cost": 0.005333,
+    "cheap_correct": true,
+    "expensive_cost": 0.098645,
+    "expensive_correct": true
+  },
+  "q103": {
+    "confidence": 0.3333333333333333,
+    "cheap_cost": 0.004379,
+    "cheap_correct": true,
+    "expensive_cost": 0.041805,
+    "expensive_correct": true
+  },
+  "q104": {
+    "confidence": 0.3333333333333333,
+    "cheap_cost": 0.005071,
+    "cheap_correct": true,
+    "expensive_cost": 0.04455,
+    "expensive_correct": true
+  },
+  "q105": {
+    "confidence": 0.3333333333333333,
+    "cheap_cost": 0.004313,
+    "cheap_correct": true,
+    "expensive_cost": 0.023795,
+    "expensive_correct": true
+  },
+  "q106": {
+    "confidence": 0.3333333333333333,
+    "cheap_cost": 0.003669,
+    "cheap_correct": true,
+    "expensive_cost": 0.01905,
+    "expensive_correct": true
+  },
+  "q107": {
+    "confidence": 0.3333333333333333,
+    "cheap_cost": 0.004240000000000001,
+    "cheap_correct": true,
+    "expensive_cost": 0.0353,
+    "expensive_correct": true
+  },
+  "q108": {
+    "confidence": 0.3333333333333333,
+    "cheap_cost": 0.004312,
+    "cheap_correct": true,
+    "expensive_cost": 0.049575,
+    "expensive_correct": true
+  },
+  "q109": {
+    "confidence": 0.3333333333333333,
+    "cheap_cost": 0.005049,
+    "cheap_correct": true,
+    "expensive_cost": 0.05329,
+    "expensive_correct": true
+  },
+  "q110": {
+    "confidence": 0.3333333333333333,
+    "cheap_cost": 0.004379,
+    "cheap_correct": true,
+    "expensive_cost": 0.051965,
+    "expensive_correct": true
+  },
+  "q111": {
+    "confidence": 0.3333333333333333,
+    "cheap_cost": 0.000462,
+    "cheap_correct": true,
+    "expensive_cost": 0.01391,
+    "expensive_correct": true
+  },
+  "q112": {
+    "confidence": 0.3333333333333333,
+    "cheap_cost": 0.001275,
+    "cheap_correct": true,
+    "expensive_cost": 0.013865,
+    "expensive_correct": true
+  },
+  "q113": {
+    "confidence": 0.6666666666666666,
+    "cheap_cost": 0.000656,
+    "cheap_correct": true,
+    "expensive_cost": 0.00273,
+    "expensive_correct": true
+  },
+  "q114": {
+    "confidence": 0.6666666666666666,
+    "cheap_cost": 0.000545,
+    "cheap_correct": true,
+    "expensive_cost": 0.004295,
+    "expensive_correct": true
+  },
+  "q115": {
+    "confidence": 0.3333333333333333,
+    "cheap_cost": 0.000692,
+    "cheap_correct": true,
+    "expensive_cost": 0.004055,
+    "expensive_correct": true
+  },
+  "q116": {
+    "confidence": 0.3333333333333333,
+    "cheap_cost": 0.029212000000000002,
+    "cheap_correct": true,
+    "expensive_cost": 0.121505,
+    "expensive_correct": true
+  },
+  "q117": {
+    "confidence": 0.3333333333333333,
+    "cheap_cost": 0.061557,
+    "cheap_correct": false,
+    "expensive_cost": 0.20506,
+    "expensive_correct": false
+  },
+  "q118": {
+    "confidence": 0.3333333333333333,
+    "cheap_cost": 0.011016999999999999,
+    "cheap_correct": true,
+    "expensive_cost": 0.05207,
+    "expensive_correct": true
+  },
+  "q119": {
+    "confidence": 0.3333333333333333,
+    "cheap_cost": 0.029919,
+    "cheap_correct": true,
+    "expensive_cost": 0.102715,
+    "expensive_correct": true
+  },
+  "q120": {
+    "confidence": 0.3333333333333333,
+    "cheap_cost": 0.008572,
+    "cheap_correct": true,
+    "expensive_cost": 0.026645,
+    "expensive_correct": true
+  }
+}

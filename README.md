@@ -37,45 +37,70 @@ pip install -r requirements-dev.txt
 python -m unittest discover -s tests
 ```
 
-## Eval results: heuristic threshold vs. cost
+## Eval results: heuristic vs. cascade
 
 ![Accuracy vs. cost](eval/pareto.png)
 
-Real data from `eval/plot_pareto.py`, sweeping the heuristic score threshold
-against real Anthropic API calls and LLM-judge grading — not intuition.
+Real data from `eval/plot_pareto.py` — all 120 questions, real Anthropic API
+calls, real LLM-judge grading. Not intuition.
+
+**Heuristic router (score threshold):**
 
 | Threshold | Accuracy | Total cost |
 |---|---|---|
-| 0.00 (always expensive) | 100.0% | $2.3269 |
-| 0.20 | 98.7% | $1.3497 |
-| 0.35 | 96.1% | $0.3782 |
-| 0.50 (current default) | 96.1% | $0.3782 |
-| 0.65 | 96.1% | $0.2355 |
-| 0.80 | 96.1% | $0.1756 |
-| 1.00 (always cheap) | 96.1% | $0.1756 |
+| 0.00 (always expensive) | 100.0% | $5.2791 |
+| 0.20 | 99.2% | $3.6162 |
+| 0.35 | 95.0% | $0.6521 |
+| 0.50 (current default) | 95.0% | $0.6521 |
+| 0.65 | 95.0% | $0.4864 |
+| 0.80 | 95.0% | $0.4265 |
+| 1.00 (always cheap) | 95.0% | $0.4265 |
 
-**Reading it:** cost drops ~92% (from $2.33 to $0.18) moving from
-always-expensive to threshold 0.35+, for a 3.9-point accuracy loss (100% →
-96.1%). Almost all the savings are captured by threshold ≈0.2–0.35; pushing
-the threshold higher barely changes cost further, because few questions in
-this set score above ~0.35 on the heuristic, so most routing decisions are
-already locked in by that point. The current default of **0.5 sits right on
-that flat part of the curve** — it gets the full cost benefit without giving
-up any accuracy over the 0.35–1.0 range, though 0.2 would buy back 2.6
-accuracy points for roughly 4x the cost. There's no cascade-router curve to
-compare against yet (see caveat below), so this can't say whether
-self-consistency escalation would beat the heuristic on cost at the same
-accuracy — that's the open question the next run needs to answer.
+**Cascade router (self-consistency confidence threshold, n=3 samples):**
 
-**Caveat — this is partial data.** The full eval run (120 questions ×
-heuristic + cascade sweeps) hit an Anthropic API credit limit partway
-through. What's plotted above is the heuristic-only curve computed from the
-77 of 120 questions that had both tiers fully evaluated before the run
-stopped; the cascade curve has no data yet. Re-run
-`python eval/plot_pareto.py` after topping up API credits — it resumes from
-`eval/tier_results.json` / `eval/cascade_results.json` rather than
-re-paying for what's already cached — to fill in the remaining 43 questions
-and the full cascade comparison.
+| Confidence ≥ | Accuracy | Total cost |
+|---|---|---|
+| 0.34 (escalate unless any 2 of 3 agree) | 96.7% | $6.3760 |
+| 0.67 (escalate unless majority agree) | 97.5% | $6.4686 |
+| 1.00 (escalate unless unanimous) | 97.5% | $6.4686 |
+
+**The cascade loses.** It's dominated by the heuristic on both axes: every
+cascade point costs *more* than even the always-expensive heuristic
+baseline ($6.38–$6.47 vs. $5.28), while topping out at 97.5% accuracy versus
+the heuristic's 100%. The 0.67 and 1.00 thresholds land on identical
+numbers — with only 3 samples, confidence can only be 1/3, 2/3, or 1.0, and
+both thresholds end up escalating everything except the unanimous cases.
+
+**Why:** self-consistency here means sampling the cheap model 3 times and
+checking whether the responses match after light text normalization. For
+**96 of 120 questions (80%)**, no two of the three samples matched at all —
+even for questions the cheap model reliably *answers correctly*, the
+phrasing varies enough across samples that exact-text agreement almost
+never happens on open-ended prose. So the confidence signal reads "low" for
+the vast majority of questions regardless of actual difficulty, the router
+escalates almost everything, and the cascade ends up paying for 3 cheap
+calls *and* an expensive call on top, worse than just calling the expensive
+model directly. Exact-match self-consistency is the wrong confidence signal
+for free-form answers — it would need semantic similarity, a
+short/structured probe question, or fewer, cheaper samples to be worth
+running at all.
+
+**Heuristic threshold reading:** cost drops ~91% (from $5.28 to $0.43-0.65)
+moving from always-expensive to threshold 0.35+, for a 5-point accuracy
+loss (100% → 95%). Almost all the savings are captured by threshold
+≈0.2–0.35; pushing the threshold higher barely changes cost further,
+because few questions in this set score above ~0.35 on the heuristic, so
+most routing decisions are already locked in by that point. The current
+default of **0.5 sits on that flat part of the curve** — full cost benefit
+without giving up accuracy over the 0.35–1.0 range, though 0.2 buys back
+4.2 accuracy points for roughly 6x the cost.
+
+**Bottom line:** for this dataset, a crude heuristic score threshold beats
+a self-consistency cascade outright — cheaper *and* more accurate. The
+cascade's core idea (only pay for the expensive model when you need to) is
+sound, but the confidence signal implementing it here is too blunt for
+free-form text. A better cascade would need a confidence measure that
+tolerates paraphrasing.
 
 ## Roadmap
 

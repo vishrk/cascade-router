@@ -151,7 +151,7 @@ def cascade_points(client: Anthropic, dataset: list) -> list:
                 correct_count += int(entry["cheap_correct"])
                 total_cost += entry["cheap_cost"]
         points.append(
-            {"label": f"c≥{threshold}", "accuracy": correct_count / len(dataset), "total_cost": total_cost}
+            {"label": f"c>={threshold}", "accuracy": correct_count / len(dataset), "total_cost": total_cost}
         )
     return points
 

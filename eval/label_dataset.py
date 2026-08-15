@@ -60,7 +60,7 @@ def main():
     for i, q in enumerate(remaining, 1):
         response = client.messages.parse(
             model=JUDGE_MODEL,
-            max_tokens=2048,
+            max_tokens=8192,  # Opus 5's adaptive thinking needs headroom or output comes back empty (issue #3)
             system=RUBRIC,
             messages=[{"role": "user", "content": f"Question: {q['prompt']}"}],
             output_format=DifficultyLabel,
