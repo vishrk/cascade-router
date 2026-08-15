@@ -19,7 +19,8 @@ class FakeClient:
     def _create(self, **kwargs):
         text = next(self._texts)
         block = SimpleNamespace(type="text", text=text)
-        return SimpleNamespace(content=[block])
+        usage = SimpleNamespace(input_tokens=10, output_tokens=5)
+        return SimpleNamespace(content=[block], usage=usage)
 
 
 class TestCascade(unittest.TestCase):

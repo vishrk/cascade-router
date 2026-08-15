@@ -10,6 +10,7 @@ def self_consistency_confidence(client, model: str, prompt: str, n: int = 3, max
     this is the practical alternative for a confidence signal.
     """
     texts = []
+    usage = []
     for _ in range(n):
         reply = client.messages.create(
             model=model,
@@ -18,6 +19,7 @@ def self_consistency_confidence(client, model: str, prompt: str, n: int = 3, max
             messages=[{"role": "user", "content": prompt}],
         )
         texts.append("".join(block.text for block in reply.content if block.type == "text"))
+        usage.append((reply.usage.input_tokens, reply.usage.output_tokens))
 
     normalized = [_normalize(t) for t in texts]
     counts = {}
@@ -30,4 +32,5 @@ def self_consistency_confidence(client, model: str, prompt: str, n: int = 3, max
         "confidence": majority_count / n,
         "representative": representative,
         "responses": texts,
+        "usage": usage,
     }
