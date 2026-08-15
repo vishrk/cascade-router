@@ -3,16 +3,15 @@
 A complexity-based LLM router: a Lambda service that scores incoming prompts
 for difficulty and routes each one to the cheapest model tier likely to
 answer it correctly, escalating to a stronger model when needed. Built as a
-phased project — starting from a simple heuristic scorer, moving through a
-trained classifier, and ending with a confidence-based cascade — with an eval
-harness that plots accuracy-vs-cost to justify each routing decision with data
-rather than intuition.
+phased project — starting from a simple heuristic scorer and ending with a
+confidence-based cascade — with an eval harness that plots accuracy-vs-cost to
+justify each routing decision with data rather than intuition.
 
 ## Architecture (target end state)
 
 - **Entry point:** API Gateway → Lambda (Python)
-- **Router:** starts as heuristic (Phase 1), evolves into a trained classifier
-  (Phase 5), then a cascade with confidence-based escalation (Phase 6)
+- **Router:** starts as heuristic (Phase 1), evolves into a cascade with
+  confidence-based escalation (Phase 6)
 - **Storage:** DynamoDB — request/routing/cost logs, designed around a
   partition key that avoids hot partitions at scale (not `model_name` or
   `date` alone)
@@ -47,7 +46,7 @@ python -m unittest discover -s tests
 | 2 | DynamoDB logging, designed against hot partitions | Every routed request is logged with an explainable trail; a script proves the partition key holds up under concurrent load |
 | 3 | Cost tracking — real tokenizers, pricing table, cost reports | `python cost_report.py --since <date>` prints real measured spend by tier |
 | 4 | Eval harness + labeled dataset | A plotted accuracy-vs-cost Pareto curve backs the threshold choice |
-| 5 | Trained classifier router (v2), selectable via feature flag alongside v1 | Side-by-side chart showing v2 vs v1 at equivalent cost |
-| 6 | Cascade routing — cheap model first, escalate on low confidence | Three comparable Pareto curves (heuristic / classifier / cascade) with a tradeoffs write-up |
+| 5 | ~~Trained classifier router~~ — cut, see [PROMPT.md](PROMPT.md#phase-5-skipped) | — |
+| 6 | Cascade routing — cheap model first, escalate on low confidence | Two comparable Pareto curves (heuristic / cascade) with a tradeoffs write-up |
 | 7 | Observability & polish — structured logs, CloudWatch dashboard, README rewrite | A stranger can clone the repo and understand the system from the README alone |
 | 8 | Stretch — adaptive threshold recalibration, shadow routing | — |
