@@ -1,10 +1,12 @@
 import json
 import os
+import time
 
 from anthropic import Anthropic
 from dotenv import load_dotenv
 
-from scorer import score
+from logger import log_request
+from scorer import extract_features, score_from_features
 
 load_dotenv()  # no-op in Lambda where there's no .env file; loads local secrets for dev
 
@@ -32,16 +34,21 @@ def handler(event, context):
     if not prompt:
         return {"statusCode": 400, "body": json.dumps({"error": "missing 'prompt'"})}
 
-    complexity = score(prompt)
+    features = extract_features(prompt)
+    complexity = score_from_features(features)
     model = EXPENSIVE_MODEL if complexity >= THRESHOLD else CHEAP_MODEL
 
+    start = time.monotonic()
     reply = _get_client().messages.create(
         model=model,
         max_tokens=4096,
         messages=[{"role": "user", "content": prompt}],
     )
+    latency_ms = (time.monotonic() - start) * 1000
 
     text = "".join(block.text for block in reply.content if block.type == "text")
+
+    log_request(prompt, model, complexity, features, latency_ms)
 
     return {
         "statusCode": 200,
