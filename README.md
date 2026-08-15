@@ -37,6 +37,46 @@ pip install -r requirements-dev.txt
 python -m unittest discover -s tests
 ```
 
+## Eval results: heuristic threshold vs. cost
+
+![Accuracy vs. cost](eval/pareto.png)
+
+Real data from `eval/plot_pareto.py`, sweeping the heuristic score threshold
+against real Anthropic API calls and LLM-judge grading — not intuition.
+
+| Threshold | Accuracy | Total cost |
+|---|---|---|
+| 0.00 (always expensive) | 100.0% | $2.3269 |
+| 0.20 | 98.7% | $1.3497 |
+| 0.35 | 96.1% | $0.3782 |
+| 0.50 (current default) | 96.1% | $0.3782 |
+| 0.65 | 96.1% | $0.2355 |
+| 0.80 | 96.1% | $0.1756 |
+| 1.00 (always cheap) | 96.1% | $0.1756 |
+
+**Reading it:** cost drops ~92% (from $2.33 to $0.18) moving from
+always-expensive to threshold 0.35+, for a 3.9-point accuracy loss (100% →
+96.1%). Almost all the savings are captured by threshold ≈0.2–0.35; pushing
+the threshold higher barely changes cost further, because few questions in
+this set score above ~0.35 on the heuristic, so most routing decisions are
+already locked in by that point. The current default of **0.5 sits right on
+that flat part of the curve** — it gets the full cost benefit without giving
+up any accuracy over the 0.35–1.0 range, though 0.2 would buy back 2.6
+accuracy points for roughly 4x the cost. There's no cascade-router curve to
+compare against yet (see caveat below), so this can't say whether
+self-consistency escalation would beat the heuristic on cost at the same
+accuracy — that's the open question the next run needs to answer.
+
+**Caveat — this is partial data.** The full eval run (120 questions ×
+heuristic + cascade sweeps) hit an Anthropic API credit limit partway
+through. What's plotted above is the heuristic-only curve computed from the
+77 of 120 questions that had both tiers fully evaluated before the run
+stopped; the cascade curve has no data yet. Re-run
+`python eval/plot_pareto.py` after topping up API credits — it resumes from
+`eval/tier_results.json` / `eval/cascade_results.json` rather than
+re-paying for what's already cached — to fill in the remaining 43 questions
+and the full cascade comparison.
+
 ## Roadmap
 
 | Phase | Scope | Definition of done |
