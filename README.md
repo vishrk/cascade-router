@@ -39,7 +39,7 @@ python -m unittest discover -s tests
 
 ## Eval results: heuristic vs. cascade
 
-![Accuracy vs. cost](eval/pareto.png)
+![Accuracy vs. cost](eval/pareto_social.png)
 
 Real data from `eval/plot_pareto.py` — all 120 questions, real Anthropic API
 calls, real LLM-judge grading. Not intuition.
