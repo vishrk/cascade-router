@@ -6,6 +6,7 @@ from anthropic import Anthropic
 from dotenv import load_dotenv
 
 from logger import log_request
+from pricing import calculate_cost
 from scorer import extract_features, score_from_features
 
 load_dotenv()  # no-op in Lambda where there's no .env file; loads local secrets for dev
@@ -55,6 +56,7 @@ def handler(event, context):
 
     text = "".join(block.text for block in reply.content if block.type == "text")
 
+    cost_usd = calculate_cost(model, reply.usage.input_tokens, reply.usage.output_tokens)
     log_request(
         prompt,
         model,
@@ -63,6 +65,7 @@ def handler(event, context):
         latency_ms,
         input_tokens=reply.usage.input_tokens,
         output_tokens=reply.usage.output_tokens,
+        cost_usd=cost_usd,
     )
 
     if not text:
