@@ -38,6 +38,8 @@ class TestLogger(unittest.TestCase):
             score=0.1,
             features=features,
             latency_ms=123.4,
+            input_tokens=42,
+            output_tokens=8,
             cost_usd=0.002,
         )
 
@@ -48,6 +50,8 @@ class TestLogger(unittest.TestCase):
         self.assertEqual(item["prompt"], "What is 2 + 2?")
         self.assertEqual(float(item["score"]), 0.1)
         self.assertEqual(float(item["latencyMs"]), 123.4)
+        self.assertEqual(item["inputTokens"], 42)
+        self.assertEqual(item["outputTokens"], 8)
         self.assertEqual(float(item["costUsd"]), 0.002)
         self.assertEqual(item["features"], features)
         self.assertIn("date", item)

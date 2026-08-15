@@ -15,7 +15,16 @@ def _get_table():
     return _table
 
 
-def log_request(prompt: str, model: str, score: float, features: dict, latency_ms: float, cost_usd: float = 0.0) -> str:
+def log_request(
+    prompt: str,
+    model: str,
+    score: float,
+    features: dict,
+    latency_ms: float,
+    input_tokens: int = 0,
+    output_tokens: int = 0,
+    cost_usd: float = 0.0,
+) -> str:
     """Write one routing decision to RoutingLogs. Returns the generated requestId."""
     now = datetime.now(timezone.utc)
     request_id = str(uuid.uuid4())
@@ -29,6 +38,8 @@ def log_request(prompt: str, model: str, score: float, features: dict, latency_m
             "score": Decimal(str(score)),
             "features": features,
             "latencyMs": Decimal(str(latency_ms)),
+            "inputTokens": input_tokens,
+            "outputTokens": output_tokens,
             "costUsd": Decimal(str(cost_usd)),
             "prompt": prompt,
         }
