@@ -51,7 +51,7 @@ def save_results(results: dict) -> None:
 def grade(client: Anthropic, prompt: str, response_text: str) -> CorrectnessGrade:
     graded = client.messages.parse(
         model=EXPENSIVE_MODEL,
-        max_tokens=2048,
+        max_tokens=EXPENSIVE_MAX_TOKENS,
         system=GRADING_RUBRIC,
         messages=[{"role": "user", "content": f"Question: {prompt}\n\nResponse: {response_text}"}],
         output_format=CorrectnessGrade,
