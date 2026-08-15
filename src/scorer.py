@@ -20,10 +20,8 @@ def extract_features(prompt: str) -> dict:
     }
 
 
-def score(prompt: str) -> float:
+def score_from_features(f: dict) -> float:
     """Heuristic complexity score in [0, 1]. Higher = more likely to need the strong model."""
-    f = extract_features(prompt)
-
     value = min(f["token_count"] / 200, 0.3)
     if f["has_code"]:
         value += 0.3
@@ -35,3 +33,7 @@ def score(prompt: str) -> float:
         value -= 0.15
 
     return max(0.0, min(1.0, value))
+
+
+def score(prompt: str) -> float:
+    return score_from_features(extract_features(prompt))
