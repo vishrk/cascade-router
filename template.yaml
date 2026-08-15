@@ -14,16 +14,56 @@ Resources:
     Properties:
       CodeUri: src/
       Handler: app.handler
-      # Least-privilege execution role: CloudWatch Logs only for now.
-      # DynamoDB read/write actions get added here in Phase 2.
+      # Least-privilege execution role: logs + CRUD on this function's own table only.
       Policies:
         - AWSLambdaBasicExecutionRole
+        - DynamoDBCrudPolicy:
+            TableName: !Ref RoutingLogsTable
+      Environment:
+        Variables:
+          ROUTING_LOGS_TABLE: !Ref RoutingLogsTable
       Events:
         Route:
           Type: Api
           Properties:
             Path: /route
             Method: post
+
+  # Schema rationale: docs/dynamodb-schema.md
+  RoutingLogsTable:
+    Type: AWS::DynamoDB::Table
+    Properties:
+      TableName: RoutingLogs
+      BillingMode: PAY_PER_REQUEST
+      AttributeDefinitions:
+        - AttributeName: requestId
+          AttributeType: S
+        - AttributeName: date
+          AttributeType: S
+        - AttributeName: model
+          AttributeType: S
+        - AttributeName: timestamp
+          AttributeType: S
+      KeySchema:
+        - AttributeName: requestId
+          KeyType: HASH
+      GlobalSecondaryIndexes:
+        - IndexName: DateIndex
+          KeySchema:
+            - AttributeName: date
+              KeyType: HASH
+            - AttributeName: timestamp
+              KeyType: RANGE
+          Projection:
+            ProjectionType: ALL
+        - IndexName: ModelIndex
+          KeySchema:
+            - AttributeName: model
+              KeyType: HASH
+            - AttributeName: timestamp
+              KeyType: RANGE
+          Projection:
+            ProjectionType: ALL
 
 Outputs:
   ApiUrl:
