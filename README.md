@@ -11,7 +11,7 @@ justify each routing decision with data rather than intuition.
 
 - **Entry point:** API Gateway → Lambda (Python)
 - **Router:** starts as heuristic (Phase 1), evolves into a cascade with
-  confidence-based escalation (Phase 6)
+  confidence-based escalation (Phase 5)
 - **Storage:** DynamoDB — request/routing/cost logs, designed around a
   partition key that avoids hot partitions at scale (not `model_name` or
   `date` alone)
@@ -46,7 +46,5 @@ python -m unittest discover -s tests
 | 2 | DynamoDB logging, designed against hot partitions | Every routed request is logged with an explainable trail; a script proves the partition key holds up under concurrent load |
 | 3 | Cost tracking — real tokenizers, pricing table, cost reports | `python cost_report.py --since <date>` prints real measured spend by tier |
 | 4 | Eval harness + labeled dataset | A plotted accuracy-vs-cost Pareto curve backs the threshold choice |
-| 5 | ~~Trained classifier router~~ — cut, see [PROMPT.md](PROMPT.md#phase-5-skipped) | — |
-| 6 | Cascade routing — cheap model first, escalate on low confidence | Two comparable Pareto curves (heuristic / cascade) with a tradeoffs write-up |
-| 7 | Observability & polish — structured logs, CloudWatch dashboard, README rewrite | A stranger can clone the repo and understand the system from the README alone |
-| 8 | Stretch — adaptive threshold recalibration, shadow routing | — |
+| 5 | Cascade routing — cheap model first, escalate on low confidence | Two comparable Pareto curves (heuristic / cascade) with a tradeoffs write-up |
+| 6 | README rewrite | A stranger can clone the repo and understand the system from the README alone |
