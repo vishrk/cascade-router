@@ -8,9 +8,6 @@ trained classifier, and ending with a confidence-based cascade — with an eval
 harness that plots accuracy-vs-cost to justify each routing decision with data
 rather than intuition.
 
-**Status:** Phase 0 complete — SAM stack scaffolded, no-op Lambda deploys
-behind API Gateway. Phase 1 (heuristic router) is next.
-
 ## Architecture (target end state)
 
 - **Entry point:** API Gateway → Lambda (Python)
@@ -34,6 +31,13 @@ sam deploy --guided
 Prod secrets live in SSM Parameter Store, not env vars — see the comment in
 `.env.example`.
 
+### Running tests
+
+```bash
+pip install -r requirements-dev.txt
+python -m unittest discover -s tests
+```
+
 ## Roadmap
 
 | Phase | Scope | Definition of done |
@@ -47,24 +51,3 @@ Prod secrets live in SSM Parameter Store, not env vars — see the comment in
 | 6 | Cascade routing — cheap model first, escalate on low confidence | Three comparable Pareto curves (heuristic / classifier / cascade) with a tradeoffs write-up |
 | 7 | Observability & polish — structured logs, CloudWatch dashboard, README rewrite | A stranger can clone the repo and understand the system from the README alone |
 | 8 | Stretch — adaptive threshold recalibration, shadow routing | — |
-
-## Building this with Claude Code
-
-This project is built one task at a time, each sized to a single commit:
-
-1. Say "Let's start Phase N, task M. Implement just this task, then stop and
-   show me the diff before committing."
-2. Review the diff, then say "commit this."
-3. Repeat for the next task. Tasks are never combined "for efficiency" — the
-   small-commit history is itself a deliverable.
-4. At the end of each phase, check its Definition of done explicitly before
-   moving on.
-
-### Commit conventions
-
-- `feat(router): ...`, `feat(eval): ...`, `fix(dynamo): ...`,
-  `test(router): ...`, `docs(schema): ...`, `chore(infra): ...`
-- One task = one commit. Splitting a task further (e.g. tests separate from
-  the function they test) is fine — smaller is better, not worse.
-- Commit messages should be specific enough that the log alone tells the
-  story of the build, phase by phase.
